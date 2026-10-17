@@ -22,6 +22,7 @@ colour_cyan = "cyan"
 colour_black = "black"
 colour_blue = "blue"
 colour_purple = "purple"
+colour_grey = "grey"
 
 #UI setup
 UI = tkinter.Tk() #UI is the main window
@@ -36,9 +37,15 @@ for row in range(row_count):
   for column in range(column_count):
     value = button_values[row][column]
     button = tkinter.Button(frame, text=value, font=("Arial", 30), width=column_count-1, height=1,
-                                               
-                            command=lambda value=value: button_click(value)) #button is the button for the calculator
-    
+                            
+                            
+                             command=lambda value=value: button_click(value)) #button is the button for the calculator   
+    if value in top_symbols:
+          button.configure(background=colour_grey, foreground=colour_blue)
+    elif value in right_symbols:
+          button.configure(background=colour_grey, foreground=colour_purple)
+    else: 
+           button.configure(background=colour_grey, foreground=colour_green) 
     button.grid(row=row+1, column=column, sticky="nsew")
 frame.pack()
 def button_click(value):
