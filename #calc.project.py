@@ -52,4 +52,8 @@ def button_click(value):
   pass
 UI.mainloop()
 
+#close the system when the user closes the window
+
+print ("calculator closed")
+
 
